@@ -36,7 +36,7 @@
         <td><?= $row["TahunTerbit"];?></td>
         <td><img src="img/<?= $row["Gambar"];?>" width="50" ></td>
         <td>
-        <a href="ubah.">ubah</a>|
+        <a href="ubah.php">ubah</a>|
         <a href="hapus.php">hapus</a>
         </td>
     </tr>
