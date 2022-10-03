@@ -1,5 +1,5 @@
 <?php
-require 'index.php';
+require 'function.php';
 //mengambil data dari url
 $id = $_GET['id'];
 
@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 }
 
 // query mahasiswa berdasarkan id
-$m = query("SELECT * FROM  buku WHERE IDBUKU = $id");
+$b = query("SELECT * FROM  buku WHERE IDBUKU = $id");
 // cek apakah tombol ubah sudah ditekan 
 if (isset($_POST['ubah'])) {
   if (ubah($_POST) > 0) {
@@ -38,29 +38,29 @@ if (isset($_POST['ubah'])) {
 <body>
   <h3>From Ubah Data Buku</h3>
   <form action="" method="POST">
-    <input type="hidden" name="IDBuku" value="<?= $m['id']; ?>">
+    <input type="hidden" name="IDBuku" value="<?= $b['id']; ?>">
     <ul>
         <label>
           Nrp :
-          <input type="text" name="JudulBuku" required value="<?= $m['JudulBuku']; ?>">
+          <input type="text" name="JudulBuku" required value="<?= $b['JudulBuku']; ?>">
         </label>
       </li>
       <li>
         <label>
           Email
-          <input type="text" name="TahunTerbit" required value="<?= $m['TahunTerbit']; ?>">
+          <input type="text" name="TahunTerbit" required value="<?= $b['TahunTerbit']; ?>">
         </label>
       </li>
       <li>
         <label>
           Jurusan
-          <input type="text" name="Gambar" required value="<?= $m['Gambar']; ?>">
+          <input type="text" name="Gambar" required value="<?= $b['Gambar']; ?>">
         </label>
       </li>
       <li>
         <label>
           Gambar
-          <input type="text" name="gambar" required value="<?= $m['gambar']; ?>">
+          <input type="text" name="gambar" required value="<?= $b['gambar']; ?>">
         </label>
       </li>
       <li>

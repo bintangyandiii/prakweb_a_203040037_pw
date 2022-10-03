@@ -28,7 +28,7 @@ function tambah($data)
 {
   $conn = Koneksi();
 
-  $id = htmlspecialchars($data['IDBuku']);
+  $idb = htmlspecialchars($data['IDBuku']);
   $judul  = htmlspecialchars($data['JudulBuku']);
   $tahun = htmlspecialchars($data['TahunTerbit']);
   $gambar = htmlspecialchars($data['Gambar']);
@@ -36,7 +36,7 @@ function tambah($data)
   $query = "INSERT INTO
               buku
             VALUE
-            (null, '$id', '$judul', '$tahun', '$gambar');
+            (null, '$idb', '$judul', '$tahun', '$gambar');
             ";
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   echo mysqli_error($conn);
@@ -46,7 +46,7 @@ function tambah($data)
 function hapus($id)
 {
   $conn = Koneksi();
-  mysqli_query($conn, "DELETE FROM buku WHERE IDBuku = $id") or die(mysqli_error($conn));
+  mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id") or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
 
@@ -54,6 +54,7 @@ function ubah($data)
 {
   $conn = Koneksi();
 
+  $id = $data['id'];
   $idb = htmlspecialchars($data['IDBuku']);
   $judul  = htmlspecialchars($data['JudulBuku']);
   $tahun = htmlspecialchars($data['TahunTerbit']);
@@ -64,7 +65,7 @@ function ubah($data)
               JudulBuku = '$judul',
               TahunTerbit = '$tahun',
               Gambar = '$gambar'
-              WHERE IDBuku = $idb";
+              WHERE IDBuku = '$id' ";
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   echo mysqli_error($conn);
   return mysqli_affected_rows($conn);
@@ -74,10 +75,10 @@ function cari($keyword)
 {
   $conn = koneksi();
 
-  $query = "SELECT *FROM buku 
+  $query = "SELECT *FROM mahasiswa 
               WHERE 
-              JudulBuku LIKE '%$keyword%' OR
-              TahunTerbit LIKE '%$keyword%'
+              nama LIKE '%$keyword%' OR
+              nrp LIKE '%$keyword%'
               ";
 
   $result = mysqli_query($conn, $query);

@@ -4,7 +4,7 @@ require 'function.php';
 $id = $_GET['id'];
 
 // query mahasiswa berdasarkan id
-$m = query("SELECT * FROM  mahasiswa WHERE id = $id");
+$b = query("SELECT * FROM  buku WHERE id = $id");
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +20,8 @@ $m = query("SELECT * FROM  mahasiswa WHERE id = $id");
 <body>
   <h3>Detail Buku</h3>
   <ul>
-    <li><img src="img/<?= $m['gambar']; ?>" alt="" style="height:150px;"></li>
-    <li>NRP : <?= $m['nrp']; ?></li>
-    <li>Nama : <?= $m['nama']; ?></li>
-    <li>Email : <?= $m['email']; ?></li>
-    <li>Jurusan : <?= $m['jurusan']; ?></li>
-    <li><a href="ubah.php?id= <?= $m['id']; ?>">ubah</a> | <a href="hapus.php?id= <?= $m['id']; ?>" onclick="return confirm('Apakah anda yakin dengan ini?')">hapus</a></li>
-    <li><a href="index.php">kembali kedaftar mahasiswa</a></li>
+    <li><a href="ubah.php">ubah</a> | <a href="hapus.php" onclick="return confirm('Apakah anda yakin dengan ini?')">hapus</a></li>
+    <li><a href="index.php">kembali kedaftar Buku</a></li>
   </ul>
 
 </body>

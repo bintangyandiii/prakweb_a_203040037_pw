@@ -1,5 +1,7 @@
 body {
     background-color: aqua;
-
-    table-layout: auto;
 }
+img {
+    height: 140px;
+    ;
+  }
