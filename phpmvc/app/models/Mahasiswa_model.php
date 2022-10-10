@@ -5,12 +5,12 @@ class Mahasiswa_model {
 
     public function __construct()
     {
-        $this->db=new Database;
+        $this->db = new Database;
     }
 
     public function getAllMahasiswa()
     {
-        $this->db->query('SELEC * FROM' . $this->table);
+        $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
 
@@ -81,5 +81,5 @@ class Mahasiswa_model {
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
     }
-    
+
 }
